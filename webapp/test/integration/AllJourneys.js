@@ -7,25 +7,25 @@ QUnit.config.autostart = false;
 
 sap.ui.require([
 	"sap/ui/test/Opa5",
-	"NAMESAPCE/ClosingCash/test/integration/pages/Common",
+	"NAMESPACE/ZCashClosing/test/integration/pages/Common",
 	"sap/ui/test/opaQunit",
-	"NAMESAPCE/ClosingCash/test/integration/pages/Worklist",
-	"NAMESAPCE/ClosingCash/test/integration/pages/Object",
-	"NAMESAPCE/ClosingCash/test/integration/pages/NotFound",
-	"NAMESAPCE/ClosingCash/test/integration/pages/Browser",
-	"NAMESAPCE/ClosingCash/test/integration/pages/App"
+	"NAMESPACE/ZCashClosing/test/integration/pages/Worklist",
+	"NAMESPACE/ZCashClosing/test/integration/pages/Object",
+	"NAMESPACE/ZCashClosing/test/integration/pages/NotFound",
+	"NAMESPACE/ZCashClosing/test/integration/pages/Browser",
+	"NAMESPACE/ZCashClosing/test/integration/pages/App"
 ], function (Opa5, Common) {
 	"use strict";
 	Opa5.extendConfig({
 		arrangements: new Common(),
-		viewNamespace: "NAMESAPCE.ClosingCash.view."
+		viewNamespace: "NAMESPACE.ZCashClosing.view."
 	});
 
 	sap.ui.require([
-		"NAMESAPCE/ClosingCash/test/integration/WorklistJourney",
-		"NAMESAPCE/ClosingCash/test/integration/ObjectJourney",
-		"NAMESAPCE/ClosingCash/test/integration/NavigationJourney",
-		"NAMESAPCE/ClosingCash/test/integration/NotFoundJourney"
+		"NAMESPACE/ZCashClosing/test/integration/WorklistJourney",
+		"NAMESPACE/ZCashClosing/test/integration/ObjectJourney",
+		"NAMESPACE/ZCashClosing/test/integration/NavigationJourney",
+		"NAMESPACE/ZCashClosing/test/integration/NotFoundJourney"
 	], function () {
 		QUnit.start();
 	});

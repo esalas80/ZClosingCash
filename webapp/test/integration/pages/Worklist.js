@@ -5,8 +5,8 @@ sap.ui.define([
 		"sap/ui/test/matchers/AggregationLengthEquals",
 		"sap/ui/test/matchers/AggregationFilled",
 		"sap/ui/test/matchers/PropertyStrictEquals",
-		"NAMESAPCE/ClosingCash/test/integration/pages/Common",
-		"NAMESAPCE/ClosingCash/test/integration/pages/shareOptions"
+		"NAMESPACE/ZCashClosing/test/integration/pages/Common",
+		"NAMESPACE/ZCashClosing/test/integration/pages/shareOptions"
 	], function(Opa5, Press, EnterText,AggregationLengthEquals, AggregationFilled, PropertyStrictEquals, Common, shareOptions) {
 		"use strict";
 

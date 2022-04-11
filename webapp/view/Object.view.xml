@@ -1,278 +1,30 @@
 <mvc:View
-	controllerName="NAMESAPCE.ClosingCash.controller.Object"
-	xmlns:m="sap.m"
+	controllerName="NAMESPACE.ZCashClosing.controller.Object"
+	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:layout="sap.ui.layout"
-	xmlns:semantic="sap.f.semantic"
-	xmlns:t="sap.ui.table"
-	xmlns:core="sap.ui.core"
-	xmlns:form="sap.ui.layout.form">
+	xmlns:semantic="sap.f.semantic">
 
 	<semantic:SemanticPage
 		id="page"
 		headerPinnable="false"
 		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}">
+		busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
 
 		<semantic:titleHeading>
-			<m:Title text="{i18n>Info}" />
+			<Title text="{Segmento}" />
 		</semantic:titleHeading>
 
 		<semantic:headerContent>
-				<layout:BlockLayout background="Mixed" visible="true">
-					<layout:BlockLayoutRow scrollable="false">
-						<layout:BlockLayoutCell   backgroundColorSet="ColorSet5" backgroundColorShade="ShadeE" >
-							<m:VBox>
-								<m:Panel>
-									<m:FlexBox>
-										<m:Label text="{i18n>Caja}: "  width="auto" textAlign="End" textDirection="Inherit" visible="true"/>
-										<m:MultiInput id="help_ObjCaja" width="25%" required="true" tokenUpdate="onTokenUpdate" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="handleSelectPressObjCaja">
-											<m:layoutData>
-												<m:FlexItemData growFactor="1" />
-											</m:layoutData>
-										</m:MultiInput>
-										
-										<m:Label text="{i18n>Fech}: "  width="auto" textAlign="End" textDirection="Inherit" visible="true"/>
-										<m:Input id="txtFech" value=""  required="true"  width="auto" textAlign="Begin" textDirection="Inherit" visible="true" enabled="false"  >
-											<m:layoutData>
-												<m:FlexItemData growFactor="1" />
-											</m:layoutData>
-										</m:Input>
-										<m:Label  text="{i18n>User}User: "  width="auto" textAlign="End" textDirection="Inherit" visible="true"/>
-										<m:Input id="txtUser" value=""  required="true"  width="auto" textAlign="Begin" textDirection="Inherit" visible="true">
-											<m:layoutData>
-												<m:FlexItemData growFactor="1" />
-											</m:layoutData>
-										</m:Input>
-										<m:Button icon="sap-icon://accept" tooltip="{i18n>clsingCash}" type="Emphasized" text="{i18n>clsingCash}" press="_onClosingCash">
-											<m:layoutData>
-												<m:FlexItemData growFactor="1" />
-											</m:layoutData>
-										</m:Button>
-									</m:FlexBox>
-								</m:Panel>
-							</m:VBox>
-						</layout:BlockLayoutCell>
-				</layout:BlockLayoutRow>
-				</layout:BlockLayout>
+			<ObjectNumber
+			/>
 		</semantic:headerContent>
-			<semantic:content>
-				<layout:BlockLayout background="Mixed" visible="true" >
-					
-					<layout:content>
-						<layout:BlockLayoutRow scrollable="false"  title="Detalle de Saldos">
-						<layout:BlockLayoutCell width="40%"  backgroundColorSet="ColorSet2" backgroundColorShade="ShadeE"  >
-							<form:SimpleForm editable="true"  layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="5" labelSpanS="5" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="true">
-								<form:content>
-									<core:Title text="Saldos Totales"/>
-									<m:Label text="{i18n>SldInit}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-									<m:Input id="txtsldInicial"  value="" required="true" width="auto" textAlign="Begin" textDirection="Inherit" visible="true" enabled="false" />
-								</form:content>
-								<form:content>
-									<m:Label text="{i18n>totIng}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-									<m:Input id="txtTotIngreso"   value="" required="true" width="auto"  textAlign="Begin" textDirection="Inherit" visible="true" enabled="false" />
-									<m:Label text="{i18n>totEg}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-									<m:Input id="txtTotEgreso"   value="" required="true" width="auto"  textAlign="Begin" textDirection="Inherit" visible="true" enabled="false" />
-								</form:content>
-								<form:content>
-									<m:Label text="{i18n>SaldoFin}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-									<m:Input id="txtSaldoFin"   value="" required="true" width="auto"  textAlign="Begin" textDirection="Inherit" visible="true" enabled="false" />
-								</form:content>
-							</form:SimpleForm>	
-						</layout:BlockLayoutCell>
-						<layout:BlockLayoutCell width="70%"  backgroundColorSet="ColorSet2" backgroundColorShade="ShadeE" >
-							<t:Table id="tableSaldos" rows="{ path: 'VehiculoFiltrado>/InventarioMUSet', sorter: { path: 'Vin', descending: true } }" selectionMode="None"
-								 class="sapUiTinyMarginBottom" visibleRowCount="5"
-								ariaLabelledBy="title">
-								<t:extension>
-									<m:HBox>
-										<m:items></m:items>
-									</m:HBox>
-									<m:OverflowToolbar>
-										<m:ToolbarSpacer width=""/>
-										<m:SearchField id="idSearchSaldos" placeholder="Buscar" visible="false" width="20%" search="onSearchFieldLiveChange"/>
-										<m:Button icon="sap-icon://excel-attachment" tooltip="{i18n>btnExportar}" text="" visible="false" type="Accept" press="download"/>
-									</m:OverflowToolbar>
-								</t:extension>
-								<t:columns>
-									<t:Column sortProperty="Mov" filterProperty="Vin" width="7rem">
-										<m:Label text="{i18n>Mov}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Vin}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="VP" filterProperty="Codsociedad" width="3rem">
-										<m:Label text="{i18n>VP}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Codsociedad} - {VehiculoFiltrado>Sociedad}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="RefPago" filterProperty="Coddist" width="7rem">
-										<m:Label text="{i18n>RefPago}" wrapping="true"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Coddist} - {VehiculoFiltrado>Distribuidor}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Importe" filterProperty="Coddist" width="7rem">
-										<m:Label text="{i18n>Importe}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Coddist} - {VehiculoFiltrado>Distribuidor}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Moneda" filterProperty="Coddist" width="7rem">
-										<m:Label text="{i18n>Moneda}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Coddist} - {VehiculoFiltrado>Distribuidor}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="ImpMl" filterProperty="Coddist" width="7rem">
-										<m:Label text="{i18n>ImpMl}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Coddist} - {VehiculoFiltrado>Distribuidor}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-								</t:columns>
-									<t:footer>
-										<m:OverflowToolbar id="infobar"></m:OverflowToolbar>
-									</t:footer>
-							</t:Table>	
-							
-						</layout:BlockLayoutCell>
-					</layout:BlockLayoutRow>
-					<layout:BlockLayoutRow scrollable="false">
-						<layout:BlockLayoutCell   backgroundColorSet="ColorSet2" backgroundColorShade="ShadeE" >
-							<t:Table id="table" rows="{ path: 'VehiculoFiltrado>/InventarioMUSet', sorter: { path: 'Vin', descending: true } }" selectionMode="None"
-								rowActionCount="1" class="sapUiTinyMarginBottom" rowSelectionChange=".onPress" visibleRowCount="5"
-								ariaLabelledBy="title">
-								<t:extension>
-									<m:HBox>
-										<m:items></m:items>
-									</m:HBox>
-									<m:OverflowToolbar>
-										<m:ToolbarSpacer width=""/>
-									</m:OverflowToolbar>
-								</t:extension>
-								<t:rowSettingsTemplate>
-									<t:RowSettings highlight="{= (${VehiculoFiltrado>Estatventa} === 'Disponible')? 'Success' : 'Error' }"/>
-								</t:rowSettingsTemplate>
-								<t:columns>
-									<t:Column sortProperty="Operación" filterProperty="Vin" width="8rem">
-										<m:Label text="{i18n>Operación}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Vin}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Sociedad" filterProperty="Codsociedad" width="7rem">
-										<m:Label text="{i18n>Sociedad}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Codsociedad} - {VehiculoFiltrado>Sociedad}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Distribuidor" filterProperty="Coddist" width="7rem">
-										<m:Label text="{i18n>Centro}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Coddist} - {VehiculoFiltrado>Distribuidor}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Almacen" filterProperty="Codalmacen" width="7rem">
-										<m:Label text="{i18n>Almacen}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Codalmacen} - {VehiculoFiltrado>Almacen}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Tipounidad" filterProperty="Tipounidad" width="7rem">
-										<m:Label text="{i18n>Tipounidad}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Tipounidad}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Segmento" filterProperty="Segmento" width="7rem">
-										<m:Label text="{i18n>Segmento}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Segmento} - {VehiculoFiltrado>Descseg}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="nameID" filterProperty="nameID" width="7rem">
-										<m:Label text="{i18n>Emplazamiento}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>nombre}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Marca" filterProperty="Marca" width="7rem">
-										<m:Label text="{i18n>Marca}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Marca}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Modelo" filterProperty="Modelo" width="7rem">
-										<m:Label text="{i18n>Modelo}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Modelo}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Anno" filterProperty="Anno" width="7rem">
-										<m:Label text="{i18n>Annio}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Anno}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Costo" filterProperty="Costo" width="7rem">
-										<m:Label text="{i18n>CostoUnd}"/>
-										<t:template>
-											<m:Text
-												text="$ {path: 'VehiculoFiltrado>Costo',type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits : 2, minFractionDigits: 0, groupingSeparator: ',', decimalSeparator: '.', groupingEnabled: true }}"
-												wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Colorext" filterProperty="Colorext" width="7rem">
-										<m:Label text="{i18n>Colorext}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Colorext}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Colorint" filterProperty="Colorint" width="7rem">
-										<m:Label text="{i18n>Colorint}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Colorint}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Gama" filterProperty="Gama" width="7rem">
-										<m:Label text="{i18n>Gama}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Gama}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Expediente" filterProperty="Expediente" width="7rem">
-										<m:Label text="{i18n>Expediente}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Expediente}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Estatventa" filterProperty="Estatventa" width="7rem">
-										<m:Label text="{i18n>EstatusVen}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Estatventa}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-									<t:Column sortProperty="Estatus" filterProperty="Estatus" width="7rem">
-										<m:Label text="{i18n>Estatus}"/>
-										<t:template>
-											<m:Text text="{VehiculoFiltrado>Estatus} {VehiculoFiltrado>Descestatus}" wrapping="false"/>
-										</t:template>
-									</t:Column>
-								</t:columns>
-								<t:rowActionTemplate>
-									<t:RowAction>
-										<t:RowActionItem press=".onPress" type="Navigation" icon="sap-icon://slim-arrow-right"/>
-									</t:RowAction>
-								</t:rowActionTemplate>
-							</t:Table>		
-						</layout:BlockLayoutCell>
-					</layout:BlockLayoutRow>
-					</layout:content>
-					
-				</layout:BlockLayout>
-			</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
 	</semantic:SemanticPage>
 
 </mvc:View>

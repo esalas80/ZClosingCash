@@ -1,7 +1,7 @@
 sap.ui.require([
 		"sap/ui/test/Opa5",
 		"sap/ui/test/actions/Press",
-		"NAMESAPCE/ClosingCash/test/integration/pages/Common"
+		"NAMESPACE/ZCashClosing/test/integration/pages/Common"
 	], function(Opa5, Press, Common) {
 		"use strict";
 

@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="NAMESAPCE.ClosingCash.controller.NotFound"
+	controllerName="NAMESPACE.ZCashClosing.controller.NotFound"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 

@@ -1,6 +1,6 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
-	controllerName="NAMESAPCE.ClosingCash.controller.App"
+	controllerName="NAMESPACE.ZCashClosing.controller.App"
 	displayBlock="true"
 	xmlns="sap.m">
 

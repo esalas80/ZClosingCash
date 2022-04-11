@@ -1,10 +1,10 @@
 sap.ui.define([
-		"NAMESAPCE/ClosingCash/controller/BaseController",
+		"NAMESPACE/ZCashClosing/controller/BaseController",
 		"sap/ui/model/json/JSONModel"
 	], function (BaseController, JSONModel) {
 		"use strict";
 
-		return BaseController.extend("NAMESAPCE.ClosingCash.controller.App", {
+		return BaseController.extend("NAMESPACE.ZCashClosing.controller.App", {
 
 			onInit : function () {
 				var oViewModel,

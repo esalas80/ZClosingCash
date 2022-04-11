@@ -1,8 +1,8 @@
 /*global location history */
 sap.ui.define([
-		"NAMESAPCE/ClosingCash/controller/BaseController",
+		"NAMESPACE/ZCashClosing/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
-		"NAMESAPCE/ClosingCash/model/formatter",
+		"NAMESPACE/ZCashClosing/model/formatter",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
 		"sap/ui/core/Fragment",
@@ -12,19 +12,18 @@ sap.ui.define([
 	], function (BaseController, JSONModel, formatter, Filter, FilterOperator, Fragment, MessageBox, Token, Dialog) {
 		"use strict";
 
-		return BaseController.extend("NAMESAPCE.ClosingCash.controller.Worklist", {
+		return BaseController.extend("NAMESPACE.ZCashClosing.controller.Worklist", {
+
 			formatter: formatter,
+
 			onInit : function () {
-				var oViewModel;
+			var oViewModel;
 				// Model used to manipulate control states
 				oViewModel = new JSONModel({
 					worklistTableTitle : this.getResourceBundle().getText("worklistTableTitle")
 				});
 				this.setModel(oViewModel, "worklistView");
 			},
-
-
-			
 			onPress : function (oEvent) {
 				// The source is the list item that got pressed
 				this._showObject(oEvent.getSource());
@@ -89,7 +88,7 @@ sap.ui.define([
 					this.getView().byId("help_Div").setValueState("None");
 					this.getView().byId("idCaja").setValueState("None");
 				}
-				var loginModel = this.getView().getModel()
+				var loginModel = this.getView().getModel();
 				
 				this.getRouter().navTo("object", {
 					objectId: new Date().getMilliseconds().toString() + this.create_UUID().toString() + new Date().getMilliseconds().toString() + this.create_UUID().toString()
@@ -97,4 +96,5 @@ sap.ui.define([
 			}
 
 		});
-	});
+	}
+);

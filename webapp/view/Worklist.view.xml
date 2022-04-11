@@ -1,12 +1,8 @@
 <mvc:View
-	controllerName="NAMESAPCE.ClosingCash.controller.Worklist"
+	controllerName="NAMESPACE.ZCashClosing.controller.Worklist"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic"
-	xmlns:form="sap.ui.layout.form" 
-	xmlns:core="sap.ui.core" 
-	xmlns:m="sap.m"
-	xmlns:layout="sap.ui.layout">
+	xmlns:semantic="sap.f.semantic">
 
 	<semantic:SemanticPage
 		id="page"
@@ -18,35 +14,59 @@
 		</semantic:titleHeading>
 
 		<semantic:content>
-			<layout:BlockLayout background="Mixed" visible="true">
-				<layout:content>
-					<layout:BlockLayoutRow scrollable="false">
-						<layout:content>
-							<layout:BlockLayoutCell width="4">
-								<layout:content>
-									<form:SimpleForm id="formularioId01" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" title="{i18n>AdmonCaja}"
-													labelSpanS="4" adjustLabelSpan="false" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="true">
-										<m:Label text="{i18n>Sociedad}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										<m:MultiInput id="help_Society" width="50%" required="true" tokenUpdate="onTokenUpdate" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="handleSelectPressSoc" valueStateText="Campo requerido"/>
-										
-										<m:Label text="{i18n>Div}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										<m:MultiInput id="help_Div" width="50%" required="true" tokenUpdate="onTokenUpdate" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="handleSelectPressDiv" valueStateText="Campo requerido"/>
-										
-										<m:Label text="{i18n>Caja}"  width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										<m:Input id="idCaja"  required="true" width="50%" textAlign="Begin" textDirection="Inherit" visible="true" valueStateText="Campo requerido"/>
-									</form:SimpleForm>
-									<m:Toolbar width="67%" >
-										<m:ToolbarSpacer/>
-										<m:ToolbarSpacer/>
-										<m:Button type="Emphasized" text="{i18n>Acces}" press="_onLoginClosingCash"/>
-									</m:Toolbar>
-								</layout:content>
-							</layout:BlockLayoutCell>
-						</layout:content>
-					</layout:BlockLayoutRow>
-				</layout:content>
-			</layout:BlockLayout>
+			<Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/ViasDePagoSet',
+					sorter: {
+						path: 'Segmento',
+						descending: false
+					}
+				}"
+				noDataText="{worklistView>/tableNoDataText}"
+				busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished="onUpdateFinished">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search="onSearch"
+							width="auto">
+						</SearchField>
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem
+						type="Navigation"
+						press="onPress">
+						<cells>
+							<ObjectIdentifier
+								title="{Segmento}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
 	</semantic:SemanticPage>
 
 </mvc:View>

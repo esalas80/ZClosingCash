@@ -1,7 +1,7 @@
 {
 	"_version": "1.9.0",
 	"sap.app": {
-		"id": "NAMESAPCE.ClosingCash",
+		"id": "NAMESPACE.ZCashClosing",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"title": "{{appTitle}}",
@@ -42,7 +42,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "NAMESAPCE.ClosingCash.view.App",
+			"viewName": "NAMESPACE.ZCashClosing.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -63,7 +63,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "NAMESAPCE.ClosingCash.i18n.i18n"
+					"bundleName": "NAMESPACE.ZCashClosing.i18n.i18n"
 				}
 			},
 			"": {
@@ -75,7 +75,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "NAMESAPCE.ClosingCash.view",
+				"viewPath": "NAMESPACE.ZCashClosing.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {

@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-		"NAMESAPCE/ClosingCash/model/formatter"
+		"NAMESPACE/ZCashClosing/model/formatter"
 	], function (formatter) {
 		"use strict";
 

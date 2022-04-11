@@ -1,9 +1,9 @@
 sap.ui.define([
-		"NAMESAPCE/ClosingCash/controller/BaseController"
+		"NAMESPACE/ZCashClosing/controller/BaseController"
 	], function (BaseController) {
 		"use strict";
 
-		return BaseController.extend("NAMESAPCE.ClosingCash.controller.NotFound", {
+		return BaseController.extend("NAMESPACE.ZCashClosing.controller.NotFound", {
 
 			/**
 			 * Navigates to the worklist when the link is pressed

@@ -2,12 +2,12 @@
 sap.ui.define([
 		"sap/ui/core/UIComponent",
 		"sap/ui/Device",
-		"NAMESAPCE/ClosingCash/model/models",
-		"NAMESAPCE/ClosingCash/controller/ErrorHandler"
+		"NAMESPACE/ZCashClosing/model/models",
+		"NAMESPACE/ZCashClosing/controller/ErrorHandler"
 	], function (UIComponent, Device, models, ErrorHandler) {
 		"use strict";
 
-		return UIComponent.extend("NAMESAPCE.ClosingCash.Component", {
+		return UIComponent.extend("NAMESPACE.ZCashClosing.Component", {
 
 			metadata : {
 				manifest: "json"

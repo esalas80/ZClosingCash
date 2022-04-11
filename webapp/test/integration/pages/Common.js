@@ -4,7 +4,7 @@ sap.ui.define([
 		"use strict";
 
 		function getFrameUrl (sHash, sUrlParameters) {
-			var sUrl = jQuery.sap.getResourcePath("NAMESAPCE/ClosingCash/app", ".html");
+			var sUrl = jQuery.sap.getResourcePath("NAMESPACE/ZCashClosing/app", ".html");
 			sUrlParameters = sUrlParameters ? "?" + sUrlParameters : "";
 
 			if (sHash) {
@@ -16,7 +16,7 @@ sap.ui.define([
 			return sUrl + sUrlParameters + sHash;
 		}
 
-		return Opa5.extend("NAMESAPCE.ClosingCash.test.integration.pages.Common", {
+		return Opa5.extend("NAMESPACE.ZCashClosing.test.integration.pages.Common", {
 
 			iStartMyApp : function (oOptions) {
 				var sUrlParameters;
@@ -56,7 +56,7 @@ sap.ui.define([
 
 			getMockServer : function () {
 				return new Promise(function (success) {
-					Opa5.getWindow().sap.ui.require(["NAMESAPCE/ClosingCash/localService/mockserver"], function (mockserver) {
+					Opa5.getWindow().sap.ui.require(["NAMESPACE/ZCashClosing/localService/mockserver"], function (mockserver) {
 						success(mockserver.getMockServer());
 					});
 				});
