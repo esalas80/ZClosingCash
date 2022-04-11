@@ -1,0 +1,8 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog noDataText="No se encontraron datos" title="Sociedades" search="handleSearch00" confirm="handleValue00"
+		cancel="" items="{path:'SociedadesV4>/'}">
+        <StandardListItem id="id_list_sociedad" icon="sap-icon://factory" title="{SociedadesV4>Butxt}" description="" info="{SociedadesV4>Bukrs}" infoState="None"/>
+    </SelectDialog>
+</core:FragmentDefinition>
