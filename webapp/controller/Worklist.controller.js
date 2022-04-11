@@ -59,7 +59,7 @@ sap.ui.define([
 					);
 					if (!that._oDialogSociety) {
 						Fragment.load({
-							name: "NAMESAPCE.ClosingCash.view." + fragmentView,
+							name: "NAMESAPCE.ZCashClosing.view." + fragmentView,
 							controller: that
 						}).then(function (oDialogSociety){
 							that._oDialogSociety = oDialogSociety;
