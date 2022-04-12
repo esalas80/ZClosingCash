@@ -89,7 +89,7 @@ sap.ui.define([
 					this.getView().byId("idCaja").setValueState("None");
 				}
 				var loginModel = this.getView().getModel();
-				
+				var modelo="";
 				this.getRouter().navTo("object", {
 					objectId: new Date().getMilliseconds().toString() + this.create_UUID().toString() + new Date().getMilliseconds().toString() + this.create_UUID().toString()
 				});
