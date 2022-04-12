@@ -63,6 +63,19 @@ sap.ui.define([
 					return (c == "x" ? r : (r & 0x3 | 0x8)).toString(16);
 				});
 				return uuid;
+			},
+			getCatalogoV2: function(modelo, entidad, vfilters){
+				return new Promise(function(resolve, reject) {
+					modelo.read(entidad, {
+						filters: vfilters,
+						success: function(data){
+							resolve(data);
+						},
+						reject: function(err){
+							reject(err);
+						}
+					});
+				});
 			}
 		});
 
